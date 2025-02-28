@@ -1,5 +1,5 @@
 function initialize(){
-    let status = "* Offline *";
+    var status = "* Offline *";
     if(navigator.onLine){
         status = "* Online *";
         retrieveContacts();
@@ -22,7 +22,7 @@ function initialize(){
             document.getElementById("status").innerHTML = "Online";
         },
         false
-        );
+    );
 
 
     document.body.addEventListener(
@@ -53,7 +53,7 @@ function retrieveContacts(){
                 localStorage.setItem("contacts", JSON.stringify(contacts));
             }
         }
-    }
+    };
 
     xhr.open("get", url);
     xhr.send();
@@ -62,7 +62,7 @@ function retrieveContacts(){
 
 }
 
-function displayContacts(){
+function displayContacts(contacts){
     contacts.forEach(addRow);
 }
 
@@ -71,7 +71,7 @@ function addRow(contacts){
     var row = tcontent.insertRow();
     var nameCell = row.insertCell();
 
-    nameCell.setAttribute('data-label', Name);
+    nameCell.setAttribute('data-label', "Name");
     nameCell.innerHTML = contacts.name;
 
     var addressCell = row.insertCell();
